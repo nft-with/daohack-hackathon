@@ -12,7 +12,7 @@ interface TokenMetadata {
 export async function getItems(): Promise<TokenMetadata[]> {
   // Caution: It is a prototype. Dummy contract address and token id are used.
   const contractAddress = "0xE46774F5f602c6dE7aE056d15C1eb92a6397cEEc"
-  const tolenIds = [1, 2]
+  const tolenIds = [1, 2, 3, 4, 5, 6, 7]
 
   const web3 = new Web3((window as any).ethereum)
   const contract = new web3.eth.Contract(YanchaCatsTokenABI, contractAddress)

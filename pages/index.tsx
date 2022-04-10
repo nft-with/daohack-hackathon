@@ -19,7 +19,7 @@ function Home() {
         return {imageUrl: data.imageUrl, openseaUrl: `https://opensea.io/assets/${data.contractAddress}/${data.tokenId}`}
       }))
     })()
-  });
+  }, []);
 
   return (
     <>
