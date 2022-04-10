@@ -33,44 +33,24 @@
   border: 1px solid $border !important; // should be fixed to fit next/image
 }
 
-.button {
-  padding: 8px 12px;
+.buttons {
   position: absolute;
   right: 12px;
   bottom: 18px;
+}
+
+.openseaButton {
+  padding: 8px 12px;
   display: inline-flex;
   align-items: center;
   color: $opensea;
   font-size: 12px;
   font-weight: bold;
+  text-decoration: none;
   background-color: rgba($color: $white, $alpha: 0.9);
   border-radius: 20px;
 }
 
 .buttonText {
   margin-left: 4px;
-}
-
-.isDesktop {
-  @include media-query(mobile) {
-    display: none !important;
-  }
-}
-
-.isMobile {
-  display: none;
-
-  @include media-query(mobile) {
-    display: block;
-  }
-}
-
-@include media-query(mobile) {
-  .items {
-    padding: 0 16px;
-  }
-
-  .item {
-    margin: 0 12px 12px 0;
-  }
 }
