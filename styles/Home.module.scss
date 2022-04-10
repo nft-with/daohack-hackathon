@@ -1,0 +1,65 @@
+@import "./variables.scss";
+
+.header {
+  padding: 0 24px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.content {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+.items {
+  padding: 0 24px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.item {
+  margin: 0 24px 24px 0;
+  display: block;
+  position: relative;
+  flex-shrink: 0;
+  list-style-type: none;
+}
+
+.itemImage {
+  border-radius: 10px;
+  border: 1px solid $border !important; // should be fixed to fit next/image
+}
+
+.buttons {
+  position: absolute;
+  right: 12px;
+  bottom: 18px;
+  opacity: 0;
+}
+
+.item:hover .buttons {
+  opacity: 1;
+}
+
+.buttons:hover {
+  opacity: 1;
+}
+
+.openseaButton {
+  padding: 8px 12px;
+  display: inline-flex;
+  align-items: center;
+  color: $opensea;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: rgba($color: $white, $alpha: 0.9);
+  border-radius: 20px;
+}
+
+.buttonText {
+  margin-left: 4px;
+}

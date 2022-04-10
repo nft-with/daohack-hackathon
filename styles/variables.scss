@@ -1,0 +1,14 @@
+$opensea: #2081E2;
+$border: #e5e7e6;
+$white: #ffffff;
+
+$breakpoints: (
+  "mobile": 834px,
+  "desktop": 1024px,
+);
+
+@mixin media-query($size) {
+  @media screen and (max-width: #{map-get($breakpoints, $size)}) {
+    @content;
+  }
+}
