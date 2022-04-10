@@ -36,7 +36,7 @@ export async function getItems(): Promise<TokenMetadata[]> {
         contractAddress: contractAddress,
         tokenId: tokenId,
       }
-    )  
+    )
   }
 
   return tokenMetadatas

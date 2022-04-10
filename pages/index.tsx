@@ -3,16 +3,21 @@ import { getItems } from "../lib/itemRequest"
 import Image from "next/image";
 import styles from "../styles/Home.module.scss";
 
+type item = {
+  imageUrl: string;
+  openseaUrl: string;
+}
+
 function Home() {
-  const [isItemHover, setIsItemHover] = useState(false);
+  const [items, setItems] = useState<item[]>(new Array<item>());
 
   useEffect(() => {
     (async() => {
       const tokenMetadatas = await getItems()
-      console.log(tokenMetadatas)
 
-      const openseaUrl = `https://opensea.io/assets/${tokenMetadatas[0].contractAddress}/${tokenMetadatas[0].tokenId}`
-      console.log(openseaUrl)
+      setItems(tokenMetadatas.map(data => {
+        return {imageUrl: data.imageUrl, openseaUrl: `https://opensea.io/assets/${data.contractAddress}/${data.tokenId}`}
+      }))
     })()
   });
 
@@ -29,23 +34,22 @@ function Home() {
       </div>
       <div className={styles.content}>
         <ul className={styles.items}>
-          <li
-            className={styles.item}
-            onMouseEnter={() => setIsItemHover(true)}
-            onMouseLeave={() => setIsItemHover(false)}
-          >
-            <Image
-              className={styles.itemImage}
-              src="/sample.png"
-              alt="sample"
-              width={212}
-              height={212}
-            />
-            {isItemHover && (
+          {items.map((item: any, index) => (
+            <li
+              key={index}
+              className={styles.item}
+            >
+              <Image
+                className={styles.itemImage}
+                src={item.imageUrl}
+                alt="sample"
+                width={212}
+                height={212}
+              />
               <div className={styles.buttons}>
                 <a
                   className={styles.openseaButton}
-                  href={`https://opensea.io/`}
+                  href={item.openseaUrl}
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -59,8 +63,8 @@ function Home() {
                   <span className={styles.buttonText}>Go OpenSea</span>
                 </a>
               </div>
-            )}
-          </li>
+            </li>
+          ))}
         </ul>
       </div>
     </>

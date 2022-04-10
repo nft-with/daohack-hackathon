@@ -37,6 +37,15 @@
   position: absolute;
   right: 12px;
   bottom: 18px;
+  opacity: 0;
+}
+
+.item:hover .buttons {
+  opacity: 1;
+}
+
+.buttons:hover {
+  opacity: 1;
 }
 
 .openseaButton {
